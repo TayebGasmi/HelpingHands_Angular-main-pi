@@ -1,0 +1,31 @@
+<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
+
+  <app-sidebar></app-sidebar>
+  <div class="h-screen flex-grow-1 overflow-y-lg-auto">
+
+    <div class="d-flex justify-content-between  m-1 ">
+      <input [(ngModel)]="searchText" class="form-control form-control-sm m-1"
+             placeholder="Search ..."
+             type="text">
+    </div>
+    <div>
+
+    </div>
+
+    <div class="row container-fluid">
+      <app-card-reclamation-admin *ngFor="let reclamation of getReclamationList()"
+                            [reclamation]="reclamation"
+                                  (updateList)="getReclamations()"
+                            class="col-4"></app-card-reclamation-admin>
+    </div>
+    <mat-paginator (page)="handlePageEvent($event)" *ngIf="reclamations.length!=0"
+                   [length]="reclamations.length"
+                   [pageIndex]="pageIndex"
+                   [pageSizeOptions]="[5, 10, 25, 100]"
+                   [pageSize]="pageSize"
+                   aria-label="Select page">
+    </mat-paginator>
+
+  </div>
+
+</div>

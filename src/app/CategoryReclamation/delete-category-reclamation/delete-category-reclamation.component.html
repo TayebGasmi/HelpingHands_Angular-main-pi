@@ -1,0 +1,14 @@
+<div mat-dialog-content>
+  <!-- delete confirm cancel --><h1 class="text-center">do want to delete  {{data.name}}</h1>
+</div>
+<div class="d-flex justify-content-between" mat-dialog-actions>
+
+
+  <button (click)="onDelete()" class="btn btn-primary">delete</button>
+
+
+  <button (click)="onNoClick()" class="btn btn-secondary float-md-end" type="button">cancel</button>
+
+
+</div>
+
